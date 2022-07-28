@@ -21,21 +21,21 @@ describe('CharacterRouter test', () => {
             // await sequelize.sync({force:true})
             characterOne = {
                 image: 'optionA',
-                name: 'optionA',
+                name: 'option A',
                 age: 9,
                 weight: 123,
                 history: "asdasdasd asdas"
             }
             characterTwo = {
                 image: 'optionB',
-                name: 'optionB',
+                name: 'option B',
                 age: 90,
                 weight: 123,
                 history: "asdasdasd asdas"
             }
             characterThree = {
                 image: 'optionC',
-                name: 'optionC',
+                name: 'marcelo',
                 age: 15,
                 weight: 123,
                 history: "asdasdasd asdas"
@@ -90,6 +90,22 @@ describe('CharacterRouter test', () => {
                     expect(res).to.have.status(200)
                     expect(res).to.be.json;
                     expect(res.body).to.have.property('characters')
+                    done();
+                })
+        });
+        it('GET method filtered for name', (done) => {
+            const name = 'option';
+            request(app)
+                .get(`/characters?name=${name}`)
+                .end((err, res) => {
+                    if (err) done(err);
+
+                    expect(res).to.have.status(200)
+                    expect(res).to.be.json;
+                    expect(res.body).to.have.property('characters')
+                    for (const object of res.body.characters) {
+                        expect(object.name).to.contains(name)
+                    }
                     done();
                 })
         });
