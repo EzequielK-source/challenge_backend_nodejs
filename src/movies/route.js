@@ -10,8 +10,10 @@ MoviesRouter.route('/')
         })
     })
     .post(async(req,res)=>{
+        const CreatedMovieId = await CreateMovie(req.body);
         return res.status(201).json({
             status:'movie created',
+            MovieID: CreatedMovieId.ID
         })
     })
 module.exports = MoviesRouter;
