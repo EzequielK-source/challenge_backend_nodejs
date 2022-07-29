@@ -10,6 +10,8 @@ app.get('/', (req,res)=>{
 })
 //route imports
 const CharactersRouter = require('src/characters/route')
+const MoviesRouter = require('src/movies/route')
 app.use('/characters', CharactersRouter)
+app.use('/movies', MoviesRouter)
 
 module.exports = app;
