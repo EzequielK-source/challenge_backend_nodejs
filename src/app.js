@@ -1,10 +1,12 @@
 const express = require('express');
+const morgan = require('morgan');
 const sequelize = require('./database/index');
 sequelize.sync()
 const app = express();
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
+app.use(morgan(':method :url :status :res[content-length] - :response-time ms'))
 
 app.get('/', (req,res)=>{
     return res.sendStatus(200)
