@@ -1,7 +1,8 @@
 const {DataTypes} = require('sequelize')
 const sequelize = require('src/database/index');
 
-module.exports = sequelize.define('characters', {
+const Movies = require('src/movies/model')
+Characters = sequelize.define('characters', {
     ID:{
         type: DataTypes.UUID,
         primaryKey:true
@@ -26,3 +27,8 @@ module.exports = sequelize.define('characters', {
     timestamps: false,
     tableName: "characters"
 });
+module.exports = Characters
+
+
+Movies.belongsToMany(Characters, { through: 'Characters_Movies'})
+Characters.belongsToMany(Movies, { through: 'Characters_Movies'})
