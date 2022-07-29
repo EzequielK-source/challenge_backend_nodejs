@@ -6,6 +6,7 @@ const chai = require('chai')
 chai.use(chaiHttp);
 chai.use(chaiExclude)
 
+const {validate} = require('uuid')
 
 const { expect, request } = chai;
 //APP layer imports 
@@ -18,7 +19,7 @@ describe('POST Movies TEST', () => {
             .send({
                 image:'path/to/image',
                 title: 'title',
-                creation_date: moment().format('yyyy-mm-dd'),
+                creation_date: moment().format('YYYY-MM-DD'),
                 qualification: 5
             })
             .end((err,res)=>{
@@ -27,6 +28,9 @@ describe('POST Movies TEST', () => {
                 expect(res).to.have.status(201)
 
                 expect(res.body).to.have.property("status").equal('movie created')
+                expect(res.body).to.have.property("MovieID");
+
+                expect(validate(res.body.MovieID)).to.be.true;
                 done();
             })
     });
