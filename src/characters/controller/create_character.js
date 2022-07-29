@@ -1,6 +1,6 @@
 const {v4: uuidv4} = require('uuid')
 const Characters = require('src/characters/model');
-module.exports = async ({ID, image, name, age, weight, history})=>{
+module.exports = async ({ID,image, name, age, weight, history})=>{
     /**
      * Get CharactersFields for param and try persist a character
      * 
@@ -20,10 +20,8 @@ module.exports = async ({ID, image, name, age, weight, history})=>{
 
     if(ID === undefined || ID === "") ID = uuidv4();
 
-    await Characters.create({ID, image, name, age, weight, history})
-        .catch(err=>console.log(err))
-    
+    const characterCreated = Characters.build({ID, image, name, age, weight, history});
 
-    return {ID, image, name, age, weight, history};
-
+    await characterCreated.save();
+    return characterCreated.dataValues;
 }
