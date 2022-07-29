@@ -1,5 +1,6 @@
 const express = require('express');
-
+const sequelize = require('./database/index');
+sequelize.sync()
 const app = express();
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
