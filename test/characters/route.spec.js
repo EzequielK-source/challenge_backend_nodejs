@@ -10,7 +10,6 @@ const { expect, request } = chai;
 //APP layer imports 
 const app = require('src/app');
 const CreateCharacterCollection = require('test/utils/create_characters_collection')
-const sequelize = require('src/database/index')
 describe('CharacterRouter test', () => {
     describe('GET METHOD', () => {
         let characterOne;
@@ -18,7 +17,6 @@ describe('CharacterRouter test', () => {
         let characterThree;
         before(async () => {
             //ID,image,name,age,weight,history
-            // await sequelize.sync({force:true})
             characterOne = {
                 image: 'optionA',
                 name: 'option A',
@@ -45,22 +43,16 @@ describe('CharacterRouter test', () => {
                 characterTwo,
                 characterThree
             ]
-            // await CreateCharacterCollection(characterCollection);
+            await CreateCharacterCollection(characterCollection)
         });
         it('GET method', (done) => {
             request(app)
                 .get('/characters')
                 .end((err, res) => {
                     if (err) done(err);
-
                     expect(res).to.have.status(200)
                     expect(res).to.be.json;
                     expect(res.body).to.have.property('characters')
-                    expect(res.body.characters).excluding('ID').to.be.deep.equal([
-                        characterOne,
-                        characterTwo,
-                        characterThree
-                    ])
                     done();
                 })
         });
@@ -109,5 +101,17 @@ describe('CharacterRouter test', () => {
                     done();
                 })
         });
+    });
+    it('POST METHOD', (done) => {
+        request(app)
+            .post('/characters')
+            .end((err, res) => {
+                if (err) done(err);
+
+                expect(res).to.have.status(201);
+                expect(res).to.be.json;
+
+                done();
+            })
     });
 });
