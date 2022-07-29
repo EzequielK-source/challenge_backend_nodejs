@@ -8,6 +8,7 @@ const { expect, request } = chai;
 //APP layer imports 
 const app = require('src/app');
 const DeleteAllCharacters = require('test/utils/delete_all_characters')
+const DeleteAllMovies = require('test/utils/delete_all_movies')
 describe('App test', () => {
     before(async() => {
         /**
@@ -16,6 +17,7 @@ describe('App test', () => {
          * 1 delete all test_db registers
          */
         await DeleteAllCharacters();
+        await DeleteAllMovies();
     });
     it('App is working up', (done) => {
         request(app)
