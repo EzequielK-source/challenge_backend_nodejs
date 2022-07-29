@@ -11,6 +11,7 @@ module.exports = async (name)=>{
     if(name === ""  || typeof(name) !== 'string') throw new Error("Invalid name")
 
     const characters = await Character.findAll({
+        attributes: ["image", "name"],
         where:{
             name: {
                 [Op.like]:`%${name}%`

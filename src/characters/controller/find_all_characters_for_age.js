@@ -8,6 +8,7 @@ module.exports = async age=>{
      */
     
     const characters = await Character.findAll({
+        attributes: ["image", "name"],
         where:{
             age
         }

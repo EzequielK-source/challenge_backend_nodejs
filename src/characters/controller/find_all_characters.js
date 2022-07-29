@@ -6,6 +6,8 @@ module.exports = async ()=>{
      * 
      * @return Characters array
      */
-    const characters = await Character.findAll();
+    const characters = await Character.findAll({
+        attributes: ["image", "name"]
+    });
     return characters;
 }
