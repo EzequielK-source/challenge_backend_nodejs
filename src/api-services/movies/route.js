@@ -22,7 +22,6 @@ MoviesRouter.route('/:id')
     .get(async(req,res)=>{
         try {
             const movie = await MovieDetail(req.params.id);
-
             return res.status(200).json({
                 "movie":movie
             })

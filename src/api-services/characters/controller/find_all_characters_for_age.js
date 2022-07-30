@@ -1,4 +1,4 @@
-const Character = require('src/characters/model')
+const Character = require('src/api-services/characters/model');
 module.exports = async age=>{
     /**
      * Finds all persisted characters filtered for age

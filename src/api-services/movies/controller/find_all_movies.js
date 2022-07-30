@@ -1,4 +1,4 @@
-const MoviesModel = require('src/movies/model')
+const MoviesModel = require('src/api-services/movies/model');
 module.exports = async()=>{
     /**
      * Find all persisted movies and return it

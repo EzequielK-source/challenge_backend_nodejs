@@ -1,4 +1,4 @@
-const Character = require('src/characters/model')
+const Character = require('src/api-services/characters/model');
 const { Op } = require("sequelize");
 module.exports = async (name)=>{
     /**

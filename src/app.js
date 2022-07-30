@@ -12,8 +12,8 @@ app.get('/', (req,res)=>{
     return res.sendStatus(200)
 })
 //route imports
-const CharactersRouter = require('src/characters/route')
-const MoviesRouter = require('src/movies/route')
+const CharactersRouter = require('src/api-services/characters/route')
+const MoviesRouter = require('src/api-services/movies/route')
 app.use('/characters', CharactersRouter)
 app.use('/movies', MoviesRouter)
 

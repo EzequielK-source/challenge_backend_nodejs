@@ -1,5 +1,5 @@
 const {v4: uuidv4} = require('uuid')
-const Characters = require('src/characters/model');
+const Characters = require('src/api-services/characters/model');
 module.exports = async ({ID,image, name, age, weight, history})=>{
     /**
      * Get CharactersFields for param and try persist a character

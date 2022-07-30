@@ -6,7 +6,7 @@ chai.use(asPromised);
 const { expect } = chai;
 //Character domain import
 const {v4: uuidv4} = require('uuid')
-const CreateCharacter = require('src/characters/controller/create_character');
+const CreateCharacter = require('src/api-services/characters/controller/create_character');
 const DeleteAllCharacters = require('test/utils/delete_all_characters');
 describe('CreateCharacter test', () => {
     const validCharacterFields = {

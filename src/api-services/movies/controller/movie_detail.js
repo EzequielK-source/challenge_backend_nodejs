@@ -1,4 +1,4 @@
-const MovieModel = require('src/movies/model');
+const MovieModel = require('src/api-services/movies/model');
 
 module.exports = async movieID =>{
     /**
@@ -7,12 +7,11 @@ module.exports = async movieID =>{
      * @param movieID STRING
      * 
      */
-
-    const movie = await MovieModel.findByPk(movieID);
-
-
+    
+    const movie = await MovieModel.findByPk(movieID)
+    
+    console.log(movie)
     if(movie !== undefined) return movie;
-
 
     throw new Error('movie not found')
 }

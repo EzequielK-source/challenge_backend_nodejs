@@ -10,7 +10,7 @@ chai.use(chaiExclude)
 const { expect, request } = chai;
 //APP layer imports 
 const app = require('src/app');
-const CreateMovie = require('src/movies/controller/create_movie')
+const CreateMovie = require('src/api-services/movies/controller/create_movie')
 describe('GET Movies TEST', () => {
     it('Valid GET request', (done) => {
         request(app)
