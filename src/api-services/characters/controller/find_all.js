@@ -1,6 +1,24 @@
 const Character = require('src/api-services/characters/model');
+const MovieModel = require('src/api-services/movies/model');
+
 const { Op } = require("sequelize");
 const FindAll = {}
+FindAll.FindAllCharacterFromMovie = async movieID =>{
+    /**
+     * Find all characters related to the id of movie
+     * 
+     * @param movieID UUID
+     * 
+     * @return characters [JSON]
+     */
+
+    const characters = await MovieModel.findByPk(movieID)
+        .then((movie)=>{
+            if(!movie) throw Error('movie not founded')
+            return movie.getActors();
+        })
+    return characters;
+}
 FindAll.FindAllCharacters = async ()=>{
     /**
      * Finds all persisted characters
