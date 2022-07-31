@@ -31,7 +31,7 @@ CharactersRouter.route('/')
             const createdCharacter = await CreateCharacter(req.body);
             return res.status(201).json({ 
                 'status': 'Character created',
-                character: createdCharacter
+                character: createdCharacter.dataValues
             })
         }catch(err){
             console.log(err)

@@ -24,8 +24,9 @@ describe('CreateCharacter test', () => {
             .be
             .fulfilled
             .to
-            .be
+            .have
+            .property('dataValues')
             .deep
-            .equal(validCharacterFields);
+            .equal(validCharacterFields)
     });
 });

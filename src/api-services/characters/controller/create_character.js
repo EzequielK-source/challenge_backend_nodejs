@@ -20,8 +20,5 @@ module.exports = async ({ID,image, name, age, weight, history})=>{
 
     if(ID === undefined || ID === "") ID = uuidv4();
 
-    const characterCreated = Characters.build({ID, image, name, age, weight, history});
-
-    await characterCreated.save();
-    return characterCreated.dataValues;
+    return await Characters.create({ID, image, name, age, weight, history});
 }
