@@ -1,10 +1,7 @@
 const Router = require('express').Router;
 const CharactersRouter = Router();
 
-const FindAllCharacters = require('./controller/find_all_characters')
-const FindAllCharactersForAge = require('./controller/find_all_characters_for_age')
-const FindAllCharactersForName = require('./controller/find_all_characters_by_name')
-
+const {FindAllCharacters, FindAllCharactersForAge, FindAllCharactersForName} = require('./controller/find_all');
 const CreateCharacter = require('./controller/create_character')
 CharactersRouter.route('/')
     .get(async (req, res) => {
