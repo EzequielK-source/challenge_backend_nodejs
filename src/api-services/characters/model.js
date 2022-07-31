@@ -1,6 +1,6 @@
 const {DataTypes} = require('sequelize')
 const sequelize = require('src/database/index');
-
+const Movie = require('src/api-services/movies/model')
 Characters = sequelize.define('characters', {
     ID:{
         type: DataTypes.UUID,
@@ -26,4 +26,8 @@ Characters = sequelize.define('characters', {
     timestamps: false,
     tableName: "characters"
 });
+
+
+Characters.belongsToMany(Movie, {as:"movie", through:'Characters_Movies'})
+Movie.belongsToMany(Characters, {as:"actors", through:'Characters_Movies'})
 module.exports = Characters;
