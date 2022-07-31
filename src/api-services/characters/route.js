@@ -15,7 +15,11 @@ CharactersRouter.route('/')
                 characters = await FindAllCharactersForAge(age)
             }
             if (movie !== undefined) {
-                characters = await FindAllCharacterFromMovie(movie)
+                const {characters, movie_title} = await FindAllCharacterFromMovie(movie)
+                return res.status(200).json({
+                    "movie_title":movie_title,
+                    "characters":characters
+                })
             }
             if (age === undefined && name === undefined) {
                 characters = await FindAllCharacters();

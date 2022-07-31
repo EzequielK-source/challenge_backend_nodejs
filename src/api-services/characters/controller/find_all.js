@@ -11,13 +11,17 @@ FindAll.FindAllCharacterFromMovie = async movieID =>{
      * 
      * @return characters [JSON]
      */
-
-    const characters = await MovieModel.findByPk(movieID)
+    const movie = await MovieModel.findByPk(movieID)
         .then((movie)=>{
             if(!movie) throw Error('movie not founded')
-            return movie.getActors();
+            return movie;
         })
-    return characters;
+    const characters = await movie.getActors();
+    console.log(characters)
+    return { 
+        movie_title: movie.title,
+        characters
+    };
 }
 FindAll.FindAllCharacters = async ()=>{
     /**
