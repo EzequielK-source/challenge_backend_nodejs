@@ -86,7 +86,8 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/EzequielK-source/challenge_backend_nodejs && cd challenge_backend_nodejs
    ```
-2. Set own DB connection params in config/production.json 
+   <a href="#top">back to top</a>
+2. Set own <a href="#db_params">DB connection params </a> in config/production.json 
     ```
     {
         "Customer": {
@@ -100,8 +101,11 @@ To get a local copy up and running follow these simple example steps.
             }
         }
     }
-    ```
-3. Install NPM deps
+3. create the database if it doesn't exist, the database name has to match the 'database' setting passed in the production.json
+   ```
+   createdb ${dbname}
+   ```
+4. Install NPM deps
   ```
     npm run install --production
   ```
@@ -116,6 +120,7 @@ Failing that, if you can't enable port 3030, make the following modification to 
   export PORT={avaible port}
   npm run start
 ```
+
 
 <!-- CONTACT -->
 ## Contact
