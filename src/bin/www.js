@@ -7,7 +7,8 @@ const force = process.env.NODE_ENV === 'development';
 MakeRelations();
 sequelize.sync(force)
     .then(()=>{
-        console. clear();
+        console.log('Models sync')
+        console.clear();
         www.listen(PORT, ()=>{
             console.log(`SERVER START AT PORT ${PORT}`)
         })

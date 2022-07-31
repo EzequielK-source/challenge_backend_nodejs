@@ -11,7 +11,6 @@ const { expect, request } = chai;
 const {v4: uuidv4} = require('uuid')
 const app = require('src/app');
 const MovieModel = require('src/api-services/movies/model')
-const CreateCharacterCollection = require('test/utils/create_characters_collection')
 describe('GET METHOD', () => {
     it('GET method', (done) => {
         request(app)
@@ -87,7 +86,6 @@ describe('GET METHOD', () => {
 
                     expect(res).to.have.status(200)
                     expect(res).to.be.json;
-                    console.log(res.body)
                     expect(res.body).to.have.property('characters').instanceof(Array)
                     expect(res.body).to.have.property('movie_title').equal(movieTitle);
                     const characters = res.body.characters;
@@ -101,6 +99,13 @@ describe('GET METHOD', () => {
                     done();
                 })
         });
+
+        after(async() => {
+           await MovieModel.destroy({
+            where:{
+                ID: movieId
+            }
+           }) 
+        });
     });
-        
 });

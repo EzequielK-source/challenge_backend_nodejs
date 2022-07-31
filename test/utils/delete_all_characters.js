@@ -12,10 +12,11 @@ module.exports = async () => {
     });
 
     try {
-        await pool.connect();
-        await pool.query('DELETE FROM characters')
+        pool.connect();
+        pool.query('DELETE FROM characters')
         pool.end();
     } catch (err) {
         console.error(err)
     }
+    return true;
 }

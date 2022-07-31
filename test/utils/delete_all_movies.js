@@ -1,5 +1,5 @@
 const { Pool } = require('pg')
-module.exports = async () => {
+module.exports = async() => {
     /**
      * Creates all characters from CharacterCollection
      */
@@ -12,10 +12,11 @@ module.exports = async () => {
     });
 
     try {
-        await pool.connect();
-        await pool.query('DELETE FROM movies')
+        pool.connect();
+        pool.query('DELETE FROM movies')
         pool.end();
     } catch (err) {
         console.error(err)
     }
+    return true;
 }

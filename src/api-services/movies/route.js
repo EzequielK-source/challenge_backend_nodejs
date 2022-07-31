@@ -26,7 +26,7 @@ MoviesRouter.route('/:id')
                 "movie":movie
             })
         }catch(err){
-            console.log(err)
+            console.error(err)
             return res.status(400).json(err)
         }
     })

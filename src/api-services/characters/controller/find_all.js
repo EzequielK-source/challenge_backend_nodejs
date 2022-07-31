@@ -17,7 +17,6 @@ FindAll.FindAllCharacterFromMovie = async movieID =>{
             return movie;
         })
     const characters = await movie.getActors();
-    console.log(characters)
     return { 
         movie_title: movie.title,
         characters
@@ -57,7 +56,6 @@ FindAll.FindAllCharactersForName = async (name)=>{
      * 
      * @module.
      */
-    console.log(name)
     if(name === ""  || typeof(name) !== 'string') throw new Error("Invalid name")
 
     const characters = await Character.findAll({

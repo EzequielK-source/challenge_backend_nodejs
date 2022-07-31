@@ -11,7 +11,11 @@ const { expect, request } = chai;
 //APP layer imports 
 const app = require('src/app');
 const CreateMovie = require('src/api-services/movies/controller/create_movie')
+const DeleteAllMovies = require('test/utils/delete_all_movies')
 describe('GET Movies TEST', () => {
+    before(async () => {
+        await DeleteAllMovies()
+    })
     it('Valid GET request', (done) => {
         request(app)
             .get('/movies')
@@ -35,7 +39,7 @@ describe('GET Movies TEST', () => {
                 creation_date: moment().format('YYYY-MM-DD'),
                 qualification: 5
             })
-            if(movie) {idMovie = movie.ID;}
+            if (movie) { idMovie = movie.ID; }
         });
         it('View Movie detail', (done) => {
             request(app)
@@ -56,6 +60,6 @@ describe('GET Movies TEST', () => {
                     done();
                 })
         });
-            
+
     });
 });

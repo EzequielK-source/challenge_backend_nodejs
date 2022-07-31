@@ -10,7 +10,6 @@ module.exports = async movieID =>{
     
     const movie = await MovieModel.findByPk(movieID)
     
-    console.log(movie)
     if(movie !== undefined) return movie;
 
     throw new Error('movie not found')

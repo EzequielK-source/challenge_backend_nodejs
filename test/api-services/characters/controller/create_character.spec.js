@@ -6,9 +6,12 @@ chai.use(asPromised);
 const { expect } = chai;
 //Character domain import
 const {v4: uuidv4} = require('uuid')
+const DeleteAllCharacters = require('test/utils/delete_all_characters')
 const CreateCharacter = require('src/api-services/characters/controller/create_character');
-const DeleteAllCharacters = require('test/utils/delete_all_characters');
 describe('CreateCharacter test', () => {
+    before(async()=>{
+        await DeleteAllCharacters();
+    })
     const validCharacterFields = {
         ID: uuidv4(),
         name: 'a valid name',
@@ -29,4 +32,5 @@ describe('CreateCharacter test', () => {
             .deep
             .equal(validCharacterFields)
     });
+    
 });

@@ -28,6 +28,6 @@ Characters = sequelize.define('characters', {
 });
 
 
-Characters.belongsToMany(Movie, {as:"movie", through:'Characters_Movies'})
-Movie.belongsToMany(Characters, {as:"actors", through:'Characters_Movies'})
+Characters.belongsToMany(Movie, {as:"movie", through:'characters_movies'})
+Movie.belongsToMany(Characters, {as:"actors", through:'characters_movies'})
 module.exports = Characters;

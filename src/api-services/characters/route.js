@@ -26,7 +26,7 @@ CharactersRouter.route('/')
             }
             return res.json({ characters: characters }).status(200)
         }catch(err){
-            console.log(err);
+            console.error(err);
             return res.status(400).json(err)
         }
     })
@@ -38,7 +38,7 @@ CharactersRouter.route('/')
                 character: createdCharacter.dataValues
             })
         }catch(err){
-            console.log(err)
+            console.error(err)
             return res.status(400).json(err)
         }
     })
