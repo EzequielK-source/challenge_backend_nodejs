@@ -1,0 +1,12 @@
+{
+    "Customer": {
+        "dbConfig": {
+            "user": "ezequielk-dev",
+            "host": "localhost",
+            "database": "disney_alkemy_production",
+            "password": "EzequielEnMysql",
+            "port": 5432,
+            "dialect":"postgres"
+        }
+    }
+}

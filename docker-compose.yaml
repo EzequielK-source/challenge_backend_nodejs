@@ -1,0 +1,29 @@
+version: "3"
+services:
+    api:
+        container_name: 'alkemy_app'
+        build: .
+        ports:
+            - "8990:8990"
+    postgres:
+      image: postgres:14.1-alpine
+      restart: always
+      environment:
+        POSTGRES_DB: alkemy_production
+        POSTGRES_USER: anUser
+        POSTGRES_PASSWORD: anPassword
+        PGDATA: /data/postgres
+      networks:
+      - postgres
+      ports:
+        - '5432:5432'
+      volumes: 
+          - /var/lib/postgres
+          - ./dbscripts/postgres:/docker-entrypoint-initdb.d
+networks:
+  postgres:
+    driver: bridge
+
+volumes:
+    postgres:
+    pgadmin:

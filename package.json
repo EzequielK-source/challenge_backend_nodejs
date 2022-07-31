@@ -20,6 +20,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start":"export NODE_PATH='.' && export NOED_ENV='production' && node src/bin/www.js",
     "test": "export NODE_PATH='.' && export NODE_ENV='testing' && node test/setup_test.js && mocha 'test/**/*.spec.js' --inline-diffs --exit",
     "dev": "export NODE_PATH='.' && export NODE_ENV='development' && nodemon src/bin/www.js"
   },
