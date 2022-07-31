@@ -87,7 +87,6 @@ To get a local copy up and running follow these simple example steps.
    ```sh
    git clone https://github.com/EzequielK-source/challenge_backend_nodejs && cd challenge_backend_nodejs
    ```
-   <a href="#top">back to top</a>
 2. Set own <a href="#db_params">DB connection params </a> in config/production.json 
     ```
     {
@@ -127,13 +126,8 @@ Failing that, if you can't enable port 3030, make the following modification to 
 ## Contact
 
 Email: programacionezequielk@gmail.com
-<a href='https://www.linkedin.com/in/ezequiel-karottupullolil/'>
-   <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></img>
-</a>
-<a href="https://github.com/EzequielK-source">
-   <img src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white">
-   </img>
-</a> 
+[![Linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ezequiel-karottupullolil/)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/EzequielK-source)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
