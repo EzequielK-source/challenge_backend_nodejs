@@ -122,7 +122,53 @@ Failing that, if you can't enable port 3030, make the following modification to 
 ```
 
 
-<!-- CONTACT -->
+
+
+### Available entry points
+
+* /characters GET Y POST
+  * /characters?movie GET
+  * /characters?name  GET 
+  * /characters?age   GET 
+* /movies GET Y POST
+  * /movies/id GET (detail_movie)
+
+
+
+## characters/
+- #### GET
+  Answer an array of all characters showing Image and Name
+  They can be filtered by age, name or movie by sending a URL query like this /characters?age
+
+  - /characters?age 
+    - find all characters with the - - same age
+  - /characters?name 
+    - find all character with a similar name
+  - /characters?movie 
+    - Find all the characters that are related to a movie and response with 
+    {
+      movie_title: STRING,
+      characters: [Characters]
+    }
+
+- #### POST 
+  Send the characters fields and try to persist it in database, the request need the next fields
+  image, name, age, weight, history, and response one JSON with the next property
+  status:'character created',
+  character: [the detail of character] 
+
+## movies/
+  - #### GET
+    Find all Movies and response JSON with property "movies" that has as value an array with the movies
+  - ### POST
+    Send the Movies fields and try to persist it in database
+
+  - ## movies/id
+    Ask for the detail of the movie belonging to the ID passed by parameter
+    Response with JSON 
+    {
+      
+    }
 ## Contact
 
 Email: programacionezequielk@gmail.com
@@ -133,8 +179,3 @@ Email: programacionezequielk@gmail.com
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
