@@ -107,7 +107,7 @@ To get a local copy up and running follow these simple example steps.
    ```
 4. Install NPM deps
   ```
-    npm run install --production
+    npm install --production
   ```
 4. Start app
   ```
