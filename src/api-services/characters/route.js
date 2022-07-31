@@ -1,18 +1,21 @@
 const Router = require('express').Router;
 const CharactersRouter = Router();
 
-const {FindAllCharacters, FindAllCharactersForAge, FindAllCharactersForName} = require('./controller/find_all');
+const {FindAllCharacterFromMovie,FindAllCharacters, FindAllCharactersForAge, FindAllCharactersForName} = require('./controller/find_all');
 const CreateCharacter = require('./controller/create_character')
 CharactersRouter.route('/')
     .get(async (req, res) => {
         try{
-            const { name, IDmovie, age } = req.query;
+            const { name, movie, age } = req.query;
             let characters;
             if (name !== undefined) {
                 characters = await FindAllCharactersForName(name)
             }
             if (age !== undefined) {
                 characters = await FindAllCharactersForAge(age)
+            }
+            if (movie !== undefined) {
+                characters = await FindAllCharacterFromMovie(movie)
             }
             if (age === undefined && name === undefined) {
                 characters = await FindAllCharacters();
